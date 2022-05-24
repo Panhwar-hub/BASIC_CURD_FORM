@@ -21,6 +21,7 @@
                 <th>Email</th>
                 <th>Mobile</th>
                 <th>City</th>
+                <th>Postcode</th>
                 <th></th>
             </tr>
 
@@ -28,10 +29,11 @@
         <tbody>
             <% list.forEach(function(data) {%>
             <tr>                
-                <td><%= data.fullname%></td>
+                <td><img src="#" alt="img"><%= data.fullname%></td>
                 <td><%= data.email%></td>
                 <td><%= data.mobile%></td>
-                <td><%= data.city%></td>    
+                <td><%= data.city%></td>
+                <td><%= data.postcode%></td>    
                 <td>
                     <a href="/employee/<%= list._id%>"><i class="fas fa-edit fa-lg" aria-hidden="true"></i></a>
                     <a href="/employee/delete/<%= list._id%>" ><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
