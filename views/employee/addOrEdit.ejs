@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Express MongoDB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+<body  class="container bg-info">
+    <h3><%=viewTitle%></h3>
+    <input type="hidden" name="_id" value="<%= employee._id%>">
+    <form  action="/employee" method="post" autocomplete="off" >
+        
+        <div class="form-group">
+            <label for="text">FullName:</label>
+            <input type="text" name="fullname" class="form-control" placeholder="Full Name" value="<%= employee.fullname%>">           
+        <div class="text-danger">
+            <%= employee.fullNameError%>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="text">Email:</label>
+            <input type="email" name="email" class="form-control" placeholder="Email" value="<%= employee.name%>" >           
+        <div class="text-danger">
+            <%= employee.EmailError%>
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="text">Mobile:</label>
+            <input type="text" name="number" class="form-control" placeholder="Mobile" >           
+        </div>
+        <div class="form-group col-md-6">
+            <label for="text">City:</label>
+            <input type="text" name="city" class="form-control" placeholder="City" >           
+        </div>
+    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+            <a href="employee/list" class="btn btn-info"><i class="fa fa-list"></i> View All</a>
+        </div>
+    </form>
+</body>
+</html>
