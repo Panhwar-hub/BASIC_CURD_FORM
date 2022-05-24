@@ -8,12 +8,11 @@ var employee = new Employee();
 router.get('/', (req, res)=>{
     res.render('employee/addOrEdit', {viewTitle :"Insert Employee", employee:employee})
 })
-
+router.get('/update', (req, res)=>{
+    updateData(req, res);
+})
 router.post('/', (req, res)=>{
-    if(req.body._id == '')
         insertData(req,res)
-        else
-        updateData(req, res)
 })
 function updateData(req, res){  
     Employee.findOneAndUpdate({_id:req.body._id}, req.body, {new: true}, (err, doc)=>{
@@ -23,7 +22,7 @@ function updateData(req, res){
         else{
             if(err.name == 'ValidationError'){
                 handleValidationError(err, req.body);
-                res.render('employee/addOrEdit',{
+                res.render('employee/updateUser',{
                     viewTitle: 'Update User', 
                     employee : req.body
                 });
@@ -33,16 +32,7 @@ function updateData(req, res){
             }
         }
     })
-    // Employee.findByIdAndUpdate(req.body._id, {employee:req.body},(err, doc)=>{
-    //     if(!err){
-    //     res.render('employee/addOrEdit',{
-    //         viewTitle: 'Update Employee',
-    //         employee: doc
-    //     });}
-    //     else{
-    //         console.log("ERRROR: "+err)
-    //     }
-    // })
+    
 }
 function insertData(req, res) {
     var employee = new Employee();
@@ -98,7 +88,7 @@ router.get('/list', (req, res)=>{
 router.get('/:id', (req, res)=>{
     Employee.findById(req.params.id, (err,doc) => {
         if(!err){
-            res.render("employee/addOrEdit", {
+            res.render("employee/updateUser", {
                 viewTitle: "Update User",
                 employee: doc
             });
