@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
-
+const middleware = require('../middleware/middleware')
 
 var router = express.Router();
 var employee = new Employee();
@@ -11,7 +11,7 @@ router.get('/', (req, res)=>{
 router.get('/update', (req, res)=>{
     updateData(req, res);
 })
-router.post('/', (req, res)=>{
+router.post('/',middleware, (req, res)=>{
         insertData(req,res)
 })
 function updateData(req, res){  
